@@ -2,7 +2,6 @@
 
 
 
-
 const container = document.querySelector(".container");
 const COLOR_1 = "whitesmoke";
 const BORDER_COLOR = "black";
@@ -32,7 +31,17 @@ function buildGrid(N=16){
             item.style.boxSizing ="border-box";
 
             item.addEventListener("mouseenter",()=>{
-                item.style.backgroundColor = BORDER_COLOR;
+                //item.style.backgroundColor = BORDER_COLOR;
+                if(!item.dataset.color){
+                    const r = Math.random()*256;
+                    const g = Math.random()*256;
+                    const b = Math.random()*256;
+                    item.dataset.color = `${r},${g},${b}`;
+                    item.style.backgroundColor = `rgb(${item.dataset.color})`
+                }
+                else{
+                    //opacity
+                }
             });
 
             item.addEventListener("mouseleave",()=>{
