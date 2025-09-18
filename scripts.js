@@ -1,17 +1,19 @@
 
 
+
+
+
 const container = document.querySelector(".container");
-
-
-
-const COLOR_1 = "red";
+const COLOR_1 = "whitesmoke";
 const BORDER_COLOR = "black";
 
-container.style.border="solid 1px " + BORDER_COLOR;
-container.style.boxSizing ="border-box";
 
 
-function buildGrid(N=64){
+
+function buildGrid(N=16){
+
+    container.style.border="solid 1px " + BORDER_COLOR;
+    container.style.boxSizing ="border-box";
 
     const squareSize = container.offsetWidth/N +"px";
 
@@ -44,5 +46,30 @@ function buildGrid(N=64){
     }
 }
 
+function clearGrid(){
+
+    container.innerHTML="";
+}
+
 buildGrid();
 
+const btn = document.querySelector(".reset-button");
+
+btn.addEventListener("click",()=>{
+    clearGrid();
+    let num = prompt("Enter the number of squares per row: min 4 | max 64 | default 16")
+    console.log(+num);
+    if(Number.isInteger(+num))
+    {
+        num=+num;
+        if(num<4 || num>64){
+            num=16;
+        }
+
+        buildGrid(num);
+    }
+    else{
+        buildGrid();
+    }
+    
+})

@@ -11,9 +11,10 @@ body{
     align-items: center;
     height: 100vh;
     gap: 32px;
+    background-color: lightgrey;
 }
 .reset-button{
-    width: 64px;
+    width: 100px;
     height: 22px;
     cursor: pointer;
     border-radius: 6px;
